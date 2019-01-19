@@ -27,34 +27,34 @@ import static demo.creditcard.CreditCardType.VISA;
 @ActiveProfiles(profiles = "test")
 public class AccountApplicationTests {
 
- @Autowired
- private CustomerRepository customerRepository;
+    @Autowired
+    private CustomerRepository customerRepository;
 
- @Test
- public void customerTest() {
-  Account account = new Account("12345");
-  Customer customer = new Customer("Jane", "Doe", "jane.doe@gmail.com", account);
-  CreditCard creditCard = new CreditCard("1234567890", VISA);
-  customer.getAccount().getCreditCards().add(creditCard);
+    @Test
+    public void customerTest() {
+        Account account = new Account("12345");
+        Customer customer = new Customer("Jane", "Doe", "jane.doe@gmail.com", account);
+        CreditCard creditCard = new CreditCard("1234567890", VISA);
+        customer.getAccount().getCreditCards().add(creditCard);
 
-  String street1 = "1600 Pennsylvania Ave NW";
-  Address address = new Address(street1, null, "DC", "Washington",
-   "United States", AddressType.SHIPPING, 20500);
-  customer.getAccount().getAddresses().add(address);
+        String street1 = "1600 Pennsylvania Ave NW";
+        Address address = new Address(street1, null, "DC", "Washington",
+                "United States", AddressType.SHIPPING, 20500);
+        customer.getAccount().getAddresses().add(address);
 
-  customer = customerRepository.save(customer);
-  Customer persistedResult = customerRepository.findOne(customer.getId());
-  Assert.assertNotNull(persistedResult.getAccount()); // <1>
-  Assert.assertNotNull(persistedResult.getCreatedAt());
-  Assert.assertNotNull(persistedResult.getLastModified()); // <2>
+        customer = customerRepository.save(customer);
+        Customer persistedResult = customerRepository.findOne(customer.getId());
+        Assert.assertNotNull(persistedResult.getAccount()); // <1>
+        Assert.assertNotNull(persistedResult.getCreatedAt());
+        Assert.assertNotNull(persistedResult.getLastModified()); // <2>
 
-  Assert.assertTrue(persistedResult.getAccount().getAddresses().stream()
-   .anyMatch(add -> add.getStreet1().equalsIgnoreCase(street1))); // <3>
+        Assert.assertTrue(persistedResult.getAccount().getAddresses().stream()
+                .anyMatch(add -> add.getStreet1().equalsIgnoreCase(street1))); // <3>
 
-  customerRepository.findByEmailContaining(customer.getEmail()) // <4>
-   .orElseThrow(
-    () -> new AssertionFailedException(new RuntimeException(
-     "there's supposed to be a matching record!")));
+        customerRepository.findByEmailContaining(customer.getEmail()) // <4>
+                .orElseThrow(
+                        () -> new AssertionFailedException(new RuntimeException(
+                                "there's supposed to be a matching record!")));
 
- }
+    }
 }

@@ -19,25 +19,25 @@ import java.util.Set;
 @NodeEntity
 public class Shipment {
 
- @GraphId
- private Long id;
+    @GraphId
+    private Long id;
 
- @Relationship(type = "CONTAINS_PRODUCT")
- private Set<Inventory> inventories = new HashSet<>();
+    @Relationship(type = "CONTAINS_PRODUCT")
+    private Set<Inventory> inventories = new HashSet<>();
 
- @Relationship(type = "SHIP_TO")
- private Address deliveryAddress;
+    @Relationship(type = "SHIP_TO")
+    private Address deliveryAddress;
 
- @Relationship(type = "SHIP_FROM")
- private Warehouse fromWarehouse;
+    @Relationship(type = "SHIP_FROM")
+    private Warehouse fromWarehouse;
 
- private ShipmentStatus shipmentStatus;
+    private ShipmentStatus shipmentStatus;
 
- public Shipment(Set<Inventory> inventories, Address deliveryAddress,
-  Warehouse fromWarehouse, ShipmentStatus shipmentStatus) {
-  this.inventories = inventories;
-  this.deliveryAddress = deliveryAddress;
-  this.fromWarehouse = fromWarehouse;
-  this.shipmentStatus = shipmentStatus;
- }
+    public Shipment(Set<Inventory> inventories, Address deliveryAddress,
+                    Warehouse fromWarehouse, ShipmentStatus shipmentStatus) {
+        this.inventories = inventories;
+        this.deliveryAddress = deliveryAddress;
+        this.fromWarehouse = fromWarehouse;
+        this.shipmentStatus = shipmentStatus;
+    }
 }

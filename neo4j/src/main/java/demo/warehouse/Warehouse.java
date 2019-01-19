@@ -14,20 +14,20 @@ import org.neo4j.ogm.annotation.Relationship;
 @NodeEntity
 public class Warehouse {
 
- @GraphId
- private Long id;
+    @GraphId
+    private Long id;
 
- private String name;
+    private String name;
 
- @Relationship(type = "HAS_ADDRESS")
- private Address address;
+    @Relationship(type = "HAS_ADDRESS")
+    private Address address;
 
- public Warehouse(String n, Address a) {
-  this.name = n;
-  this.address = a;
- }
+    public Warehouse(String n, Address a) {
+        this.name = n;
+        this.address = a;
+    }
 
- public Warehouse(String name) {
-  this.name = name;
- }
+    public Warehouse(String name) {
+        this.name = name;
+    }
 }

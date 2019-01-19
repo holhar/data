@@ -14,23 +14,23 @@ import java.util.*;
 @SpringBootApplication
 public class OrderApplication {
 
- @Bean
- CustomConversions customConversions() {
-  return new CustomConversions(
-   Collections.singletonList(new LongToDateTimeConverter()));
- }
+    @Bean
+    CustomConversions customConversions() {
+        return new CustomConversions(
+                Collections.singletonList(new LongToDateTimeConverter()));
+    }
 
- @ReadingConverter
- public static class LongToDateTimeConverter implements
-  Converter<Long, DateTime> {
+    @ReadingConverter
+    public static class LongToDateTimeConverter implements
+            Converter<Long, DateTime> {
 
-  @Override
-  public DateTime convert(Long source) {
-   return Optional.ofNullable(source).map(DateTime::new).orElse(null);
-  }
- }
+        @Override
+        public DateTime convert(Long source) {
+            return Optional.ofNullable(source).map(DateTime::new).orElse(null);
+        }
+    }
 
- public static void main(String[] args) {
-  SpringApplication.run(OrderApplication.class, args);
- }
+    public static void main(String[] args) {
+        SpringApplication.run(OrderApplication.class, args);
+    }
 }

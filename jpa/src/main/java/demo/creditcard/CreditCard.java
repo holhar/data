@@ -14,17 +14,17 @@ import javax.persistence.*;
 @Entity
 public class CreditCard extends BaseEntity {
 
- @Id
- @GeneratedValue(strategy = GenerationType.AUTO)
- private Long id;
+    @Id
+    @GeneratedValue(strategy = GenerationType.AUTO)
+    private Long id;
 
- private String number;
+    private String number;
 
- @Enumerated(EnumType.STRING)
- private CreditCardType type;
+    @Enumerated(EnumType.STRING)
+    private CreditCardType type;
 
- public CreditCard(String number, CreditCardType type) {
-  this.number = number;
-  this.type = type;
- }
+    public CreditCard(String number, CreditCardType type) {
+        this.number = number;
+        this.type = type;
+    }
 }

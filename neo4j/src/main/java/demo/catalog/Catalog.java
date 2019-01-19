@@ -19,21 +19,21 @@ import java.util.stream.Collector;
 @NodeEntity
 public class Catalog {
 
- @GraphId
- private Long id;
+    @GraphId
+    private Long id;
 
- @Relationship(type = "HAS_PRODUCT", direction = Relationship.OUTGOING)
- private Set<Product> products = new HashSet<>();
+    @Relationship(type = "HAS_PRODUCT", direction = Relationship.OUTGOING)
+    private Set<Product> products = new HashSet<>();
 
- private String name;
+    private String name;
 
- public Catalog(String n, Collection<Product> p) {
-  this.name = n;
-  this.products.addAll(p);
- }
+    public Catalog(String n, Collection<Product> p) {
+        this.name = n;
+        this.products.addAll(p);
+    }
 
- public Catalog(String name) {
-  this.name = name;
- }
+    public Catalog(String name) {
+        this.name = name;
+    }
 
 }

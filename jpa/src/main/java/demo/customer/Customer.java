@@ -14,24 +14,24 @@ import javax.persistence.*;
 @AllArgsConstructor
 public class Customer extends BaseEntity {
 
- @Id
- @GeneratedValue(strategy = GenerationType.AUTO)
- private Long id;
+    @Id
+    @GeneratedValue(strategy = GenerationType.AUTO)
+    private Long id;
 
- private String firstName;
+    private String firstName;
 
- private String lastName;
+    private String lastName;
 
- private String email;
+    private String email;
 
- @OneToOne(cascade = CascadeType.ALL)
- private Account account;
+    @OneToOne(cascade = CascadeType.ALL)
+    private Account account;
 
- public Customer(String firstName, String lastName, String email,
-  Account account) {
-  this.firstName = firstName;
-  this.lastName = lastName;
-  this.email = email;
-  this.account = account;
- }
+    public Customer(String firstName, String lastName, String email,
+                    Account account) {
+        this.firstName = firstName;
+        this.lastName = lastName;
+        this.email = email;
+        this.account = account;
+    }
 }

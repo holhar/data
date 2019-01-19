@@ -18,25 +18,25 @@ import java.util.Set;
 @AllArgsConstructor
 public class Account extends BaseEntity {
 
- @Id
- @GeneratedValue(strategy = GenerationType.AUTO)
- private Long id; // <1>
+    @Id
+    @GeneratedValue(strategy = GenerationType.AUTO)
+    private Long id; // <1>
 
- private String accountNumber;
+    private String accountNumber;
 
- // <2>
- @OneToMany(cascade = CascadeType.ALL, fetch = FetchType.EAGER)
- private Set<CreditCard> creditCards = new HashSet<>();
+    // <2>
+    @OneToMany(cascade = CascadeType.ALL, fetch = FetchType.EAGER)
+    private Set<CreditCard> creditCards = new HashSet<>();
 
- @OneToMany(cascade = CascadeType.ALL, fetch = FetchType.EAGER)
- private Set<Address> addresses = new HashSet<>();
+    @OneToMany(cascade = CascadeType.ALL, fetch = FetchType.EAGER)
+    private Set<Address> addresses = new HashSet<>();
 
- public Account(String accountNumber, Set<Address> addresses) {
-  this.accountNumber = accountNumber;
-  this.addresses.addAll(addresses);
- }
+    public Account(String accountNumber, Set<Address> addresses) {
+        this.accountNumber = accountNumber;
+        this.addresses.addAll(addresses);
+    }
 
- public Account(String accountNumber) {
-  this.accountNumber = accountNumber;
- }
+    public Account(String accountNumber) {
+        this.accountNumber = accountNumber;
+    }
 }

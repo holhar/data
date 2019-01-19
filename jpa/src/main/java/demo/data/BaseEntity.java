@@ -15,10 +15,10 @@ import javax.persistence.MappedSuperclass;
 // <2>
 public class BaseEntity {
 
- @CreatedDate
- private Long createdAt; // <3>
+    @CreatedDate
+    private Long createdAt; // <3>
 
- @LastModifiedDate
- private Long lastModified; // <4>
+    @LastModifiedDate
+    private Long lastModified; // <4>
 
 }

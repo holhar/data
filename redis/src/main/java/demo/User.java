@@ -15,14 +15,14 @@ import java.util.UUID;
 @AllArgsConstructor
 public class User implements Serializable {
 
- @Id
- private String id = UUID.randomUUID().toString();
+    @Id
+    private String id = UUID.randomUUID().toString();
 
- private String firstName, lastName;
+    private String firstName, lastName;
 
- public User(String firstName, String lastName) {
-  id = UUID.randomUUID().toString();
-  this.firstName = firstName;
-  this.lastName = lastName;
- }
+    public User(String firstName, String lastName) {
+        id = UUID.randomUUID().toString();
+        this.firstName = firstName;
+        this.lastName = lastName;
+    }
 }
